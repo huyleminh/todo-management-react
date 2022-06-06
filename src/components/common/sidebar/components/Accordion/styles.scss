@@ -1,0 +1,69 @@
+@import "../../../../../assets/scss/common/variables";
+
+.sidebar-body-title {
+	cursor: pointer;
+	width: 100%;
+	text-transform: uppercase;
+	color: #3f3953;
+
+	padding: 0rem 0.875rem;
+
+	> div {
+		padding: 0.5rem 0.875rem;
+		display: flex;
+		align-items: center;
+		height: 45px;
+
+		p {
+			font-weight: 500;
+			font-size: 12px;
+			flex-grow: 1;
+		}
+		svg {
+			font-size: 1.25rem;
+			margin-right: 0.25rem;
+			transform: rotate(-90deg);
+		}
+
+		&:hover {
+			color: $color-primary-main;
+			& > svg {
+				color: $color-primary-main;
+			}
+		}
+	}
+}
+
+.sidebar-body-submenu {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-out;
+}
+
+.hide {
+	.sidebar-body-title {
+		> div {
+			position: relative;
+
+			p {
+				text-align: center;
+				display: none;
+			}
+
+			&:hover {
+				p {
+					position: absolute;
+					visibility: visible;
+					left: 60px;
+					display: block;
+
+					color: #fff;
+					background-color: $color-primary-main;
+					width: max-content;
+					padding: 0.5rem 0.75rem;
+					border-radius: 0.25rem;
+				}
+			}
+		}
+	}
+}

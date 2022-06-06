@@ -1,0 +1,42 @@
+@import "../../../assets/scss/common/mixins";
+@import "../../../assets/scss/common/variables";
+
+.loading-custom {
+	@include square(40px);
+	position: relative;
+
+	@for $i from 1 through 12 {
+		div:nth-child(#{$i}) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include square(100%);
+			transform: rotate(calc(-30deg * $i));
+
+			&::before {
+				position: absolute;
+				content: "";
+				top: 0;
+				left: 50%;
+                transform: translateX(-50%);
+
+                width: 3px;
+                height: 12px;
+                border-radius: 2px;
+				background-color: $color-primary-main;
+				animation: loading-custom 1.2s infinite;
+				animation-delay: calc(-0.1s * ($i + -1));
+				animation-timing-function: ease-out;
+			}
+		}
+	}
+}
+
+@keyframes loading-custom {
+    from {
+        opacity: 1;
+    }
+	to {
+		opacity: 0;
+	}
+}
